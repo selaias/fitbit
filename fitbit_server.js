@@ -1,6 +1,3 @@
-var Future = Npm.require('fibers/future');
-var request = Npm.require('request')
-
 Fitbit = {};
 
 urls = {
