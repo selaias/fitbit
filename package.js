@@ -1,6 +1,6 @@
 Package.describe({
   name: 'selaias:fitbit',
-  version: '0.1.0',
+  version: '0.1.1',
   summary: 'An implementation of the Fitbit OAuth flow.',
   git: 'https://github.com/selaias/fitbit.git',
   documentation: 'README.md'
