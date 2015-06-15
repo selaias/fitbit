@@ -7,7 +7,7 @@ urls = {
   authenticate: "https://www.fitbit.com/oauth/authenticate"
 };
 
-Fitbit.whitelistedFields = ['id', 'displayName'];
+Fitbit.whitelistedFields = ['fullName', 'avatar', 'gender', 'country', 'nickname', 'dateOfBirth'];
 
 Oauth.registerService('fitbit', 1, urls, function(oauthBinding) {
 
@@ -19,15 +19,14 @@ Oauth.registerService('fitbit', 1, urls, function(oauthBinding) {
     accessToken: OAuth.sealSecret(oauthBinding.accessToken),
     accessTokenSecret: OAuth.sealSecret(oauthBinding.accessTokenSecret)
   };
-  var profile = identity.user; 
-
+  
   var fields = _.pick(identity, Fitbit.whitelistedFields);
   _.extend(serviceData, fields);
 
   return {
     serviceData: serviceData,
     options: {
-      profile: profile
+      profile: {fullNaame: identity.user.fullNaame, displayName: identity.user.displayName}
     }
   };
 });
